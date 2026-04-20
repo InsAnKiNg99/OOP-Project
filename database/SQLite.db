@@ -1,0 +1,25 @@
+CREATE TABLE students (
+    student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT,
+    phone TEXT,
+    
+);
+
+CREATE TABLE applications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER,
+    program TEXT,
+    semester TEXT,
+    date TEXT,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+
+CREATE TABLE education (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    application_id INTEGER,
+    degree TEXT,
+    institute TEXT,
+    year INTEGER,
+    FOREIGN KEY (application_id) REFERENCES applications(id)
+);
