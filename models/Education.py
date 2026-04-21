@@ -3,6 +3,7 @@ class Education:
         self.__degree = degree
         self.__inst = institute
         self.__year = year
+        
     def display_info(self):
         print(
             "Degree:", self.__degree,
