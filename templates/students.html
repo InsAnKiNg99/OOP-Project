@@ -1,0 +1,49 @@
+{% extends "Base.html" %}
+{% block content %}
+<style>
+    .glass-card { max-width: 800px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th { text-align: left; color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; padding: 10px; }
+    td { padding: 15px 10px; border-bottom: 1px solid var(--glass-border); font-size: 0.9rem; }
+    tr:hover { background: rgba(255, 255, 255, 0.02); }
+</style>
+
+<h2>Admitted Students</h2>
+
+<table>
+    <thead>
+        
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Program</th>
+            <th>Status</th>
+        
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.stu_id_attr }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>
+                {% if student.applications %}
+                    {{ student.applications[0].admission_details.program }}
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+            <td>
+                {% if student.applications %}
+                    {{ student.applications[0].status }}
+                {% else %}
+                    Pending
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/" style="display:block; text-align:center; margin-top:20px; color:var(--text-dim); text-decoration:none; font-size:0.8rem;">← Back to Portal</a>
+{% endblock %}

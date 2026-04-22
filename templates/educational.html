@@ -1,0 +1,11 @@
+{% extends "Base.html" %}
+{% block content %}
+<h2>Education</h2>
+<form action="/admission" method="post">
+    <div class="input-group"><label>Last Degree</label><input type="text" name="degree" required></div>
+    <div class="input-group"><label>Institute</label><input type="text" name="institute" required></div>
+    <div class="input-group"><label>Passing Year</label><input type="number" name="year" required></div>
+    <button class="btn">Continue</button>
+    <div class="step-text">Step 2 of 3</div>
+</form>
+{% endblock %}

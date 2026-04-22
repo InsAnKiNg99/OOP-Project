@@ -1,1 +1,11 @@
-    
+{% extends "Base.html" %}
+{% block content %}
+<h2>Personal</h2>
+<form action="/educational" method="post">
+    <div class="input-group"><label>Full Name</label><input type="text" name="name" required></div>
+    <div class="input-group"><label>Email</label><input type="email" name="email" required></div>
+    <div class="input-group"><label>Phone</label><input type="text" name="phone"></div>
+    <button class="btn">Continue</button>
+    <div class="step-text">Step 1 of 3</div>
+</form>
+{% endblock %}

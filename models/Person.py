@@ -1,15 +1,11 @@
-class Person:
-    def __init__(self, name, email, phone, address):
-        self._name = name
-        self._email = email
-        self._phone = phone
-        self._address = address
-    def display_info(self):
-        print(
-            'Name:', self._name,
-            '\nemail:', self._email,
-            '\nphone:', self._phone,
-            '\naddress:', self._address
-        )
-        
-p = Person("Muneer Hameed", "muneerhameed@gmail.com", "03333232223", "uot")
+from database.db_handler import db
+
+class Person(db.Model):
+    __abstract__ = True
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(120))
+    phone = db.Column(db.Integer)
+    address = db.Column(db.String(200))
+
+    def get_info(self):
+        return f"Name: {self.name}, Email: {self.email}"

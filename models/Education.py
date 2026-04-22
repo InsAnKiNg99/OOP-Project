@@ -1,12 +1,8 @@
-class Education:
-    def __init__(self, degree, institute, year):
-        self.__degree = degree
-        self.__inst = institute
-        self.__year = year
-        
-    def display_info(self):
-        print(
-            "Degree:", self.__degree,
-            "\nInstitute:", self.__inst,
-            "\nYear:", self.__year
-        )
+from database.db_handler import db
+
+class Education(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    degree = db.Column(db.String(100))
+    institute = db.Column(db.String(100))
+    year = db.Column(db.Integer)
+    app_id = db.Column(db.Integer, db.ForeignKey('application.id'))
