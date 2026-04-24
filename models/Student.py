@@ -2,7 +2,7 @@ from models.Person import Person
 from database.db_handler import db
 
 class Student(Person):
-    id = db.Column(db.Integer, primary_key=True, auto_increment=True)
+    id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.String(20), unique=True)
     applications = db.relationship('Application', backref='student', lazy=True, cascade='all, delete-orphan')
     
