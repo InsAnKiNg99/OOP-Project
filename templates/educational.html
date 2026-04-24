@@ -1,11 +1,20 @@
 {% extends "Base.html" %}
 {% block content %}
-<h2>Education</h2>
+<h2>Educational Background</h2>
 <form action="/admission" method="post">
-    <div class="input-group"><label>Last Degree</label><input type="text" name="degree" required></div>
-    <div class="input-group"><label>Institute</label><input type="text" name="institute" required></div>
-    <div class="input-group"><label>Passing Year</label><input type="number" name="year" required></div>
-    <button class="btn">Continue</button>
+    <div class="input-group">
+        <label>Highest Degree</label>
+        <input type="text" name="degree" placeholder="e.g. Bachelor of Science" required>
+    </div>
+    <div class="input-group">
+        <label>Institute/University</label>
+        <input type="text" name="institute" placeholder="Enter institution name" required>
+    </div>
+    <div class="input-group">
+        <label>Graduation Year</label>
+        <input type="number" name="year" min="1900" max="2099" placeholder="2023" required>
+    </div>
+    <button class="btn">Continue to Next Step</button>
     <div class="step-text">Step 2 of 3</div>
 </form>
 {% endblock %}

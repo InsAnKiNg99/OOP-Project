@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from config import Config
 from database.db_handler import db
+import logging
+from logging.handlers import RotatingFileHandler
+import os
 
 from models.Person import Person
 from models.Student import Student
@@ -13,6 +16,13 @@ from services.application_services import process_admission
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
+
+log_dir = os.path.join(Config.BASE_DIR, 'logs')
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
+
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+logging.getLogger('sqlalchemy').setLevel(logging.ERROR)
 
 @app.route('/')
 def index():
@@ -30,14 +40,15 @@ def admission():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    final_data = {
-        **session.get('personal_data', {}),
-        **session.get('education_data', {}),
-        **request.form
-    }
+    personal_data = session.get('personal_data', {})
+    education_data = session.get('education_data', {})
+    admission_data = request.form
+    
+    final_data = {**personal_data, **education_data, **admission_data}
     process_admission(final_data)
     session.clear()
-    return "<h1>Application Complete!</h1>"
+    
+    return render_template('success.html')
 
 @app.route('/students')
 def view_students():
@@ -47,4 +58,4 @@ def view_students():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug=False, use_reloader=False)

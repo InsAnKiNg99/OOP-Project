@@ -1,9 +1,18 @@
 {% extends "Base.html" %}
 {% block content %}
-<h2>Admission</h2>
+<h2>Admission Details</h2>
 <form action="/submit" method="POST">
-    <div class="input-group"><label>Select Program</label><input type="text" name="program" placeholder="e.g. BS Computer Science" required></div>
-    <div class="input-group"><label>Semester</label><input type="number" name="semester" value="1"></div>
+    <div class="input-group">
+        <label>Desired Program</label>
+        <input type="text" name="program" placeholder="e.g. BS Computer Science" required>
+    </div>
+    <div class="input-group">
+        <label>Starting Semester</label>
+        <select name="semester">
+            <option value="1">Fall Semester</option>
+            <option value="2">Spring Semester</option>
+        </select>
+    </div>
     <button class="btn">Submit Application</button>
     <div class="step-text">Final Step</div>
 </form>

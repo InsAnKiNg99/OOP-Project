@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+        }
+        .button-group .btn {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-card">
+        <h2>Application Submitted Successfully!</h2>
+        <p>Thank you for submitting your application. We have received your information and will review it shortly. You will receive an email confirmation with the next steps.</p>
+        <div class="button-group">
+            <a href="/" class="btn">Submit Another Application</a>
+            <a href="/students" class="btn">View All Applications</a>
+        </div>
+    </div>
+</body>
+</html>
