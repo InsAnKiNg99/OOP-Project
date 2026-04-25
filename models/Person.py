@@ -5,7 +5,7 @@ class Person(db.Model):
     
     name = db.Column(db.String(100))
     email = db.Column(db.String(120))
-    phone = db.Column(db.Integer)
+    phone = db.Column(db.String(20))
     address = db.Column(db.String(200))
     
     def __init__(self, name=None, email=None, phone=None, address=None):

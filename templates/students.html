@@ -23,11 +23,11 @@
     <tbody>
         {% for student in students %}
         <tr>
-            <td>{{ student.stu_id_attr }}</td>
-            <td>{{ student.name }}</td>
-            <td>{{ student.email }}</td>
+            <td>{{ student.student_id or 'N/A' }}</td>
+            <td>{{ student.name or 'N/A' }}</td>
+            <td>{{ student.email or 'N/A' }}</td>
             <td>
-                {% if student.applications %}
+                {% if student.applications and student.applications[0].admission_details %}
                     {{ student.applications[0].admission_details.program }}
                 {% else %}
                     N/A

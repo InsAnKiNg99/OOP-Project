@@ -1,0 +1,39 @@
+{% extends "Base.html" %}
+{% block content %}
+<style>
+    .error-card {
+        background: rgba(255, 100, 100, 0.1);
+        border-color: rgba(255, 100, 100, 0.3) !important;
+    }
+    
+    .error-title {
+        color: #ff6464;
+        margin-bottom: 20px;
+    }
+    
+    .error-message {
+        color: #ffb3b3;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .error-code {
+        font-size: 0.75rem;
+        color: var(--text-dim);
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+    }
+</style>
+
+<div class="glass-card error-card">
+    <h2 class="error-title">Error Occurred</h2>
+    <p class="error-message">{{ message }}</p>
+    {% if error_code %}
+    <div class="error-code">Error Code: {{ error_code }}</div>
+    {% endif %}
+    <a href="/" class="btn" style="display: inline-block; text-align: center; width: 100%; text-decoration: none;">Return to Home</a>
+</div>
+{% endblock %}
