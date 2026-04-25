@@ -35,6 +35,7 @@ file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
 app.logger.setLevel(logging.INFO)
 
+
 logging.getLogger('werkzeug').setLevel(logging.ERROR)
 logging.getLogger('sqlalchemy').setLevel(logging.ERROR)
 
@@ -151,5 +152,11 @@ if __name__ == '__main__':
             app.logger.info("Database tables created successfully")
         except Exception as e:
             app.logger.error(f"Error creating database tables: {str(e)}\n{traceback.format_exc()}")
+    
+    print("\n")
+    print("UOT Admission Portal")
+    print("="*50)
+    print("\nServer running at: http://localhost:5000")
+    print("\nPress Ctrl+C to stop\n")
     
     app.run(debug=False, use_reloader=False)

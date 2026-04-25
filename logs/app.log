@@ -1,0 +1,5 @@
+2026-04-25 08:50:55,031 INFO: Database tables created successfully [in H:\Muneer Hameed\OOP-Project\main.py:151]
+2026-04-25 08:53:13,344 INFO: Urls and routes initialized [in H:\Muneer Hameed\OOP-Project\main.py:37]
+2026-04-25 08:53:13,346 INFO: Database tables created successfully [in H:\Muneer Hameed\OOP-Project\main.py:152]
+2026-04-25 08:55:02,041 INFO: Database tables created successfully [in H:\Muneer Hameed\OOP-Project\main.py:152]
+2026-04-25 08:55:11,333 WARNING: 404 Error: http://localhost:5000/favicon.ico [in H:\Muneer Hameed\OOP-Project\main.py:135]
