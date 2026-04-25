@@ -1,14 +1,13 @@
 import re
 
 def validate_email(email):
-    """Validate email format"""
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return re.match(pattern, str(email)) is not None
 
 def validate_phone(phone):
     phone_str = str(phone).strip()
     phone_cleaned = re.sub(r'[\s\-().+]', '', phone_str)
-    return phone_cleaned.isdigit() and 7 <= len(phone_cleaned) <= 15
+    return phone_cleaned.isdigit() and 7 <= len(phone_cleaned) <= 11
 
 def validate_name(name):
     name_str = str(name).strip()
