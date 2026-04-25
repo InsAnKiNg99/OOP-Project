@@ -3,7 +3,7 @@ from models.Student import Student
 from models.Application import Application
 from models.Admission import Admission
 from models.Education import Education
-from utilities.validators import (validate_email, validate_phone, validate_name, 
+from utils.validators import (validate_email, validate_phone, validate_name, 
                                    validate_year, validate_address, validate_semester)
 import logging
 
