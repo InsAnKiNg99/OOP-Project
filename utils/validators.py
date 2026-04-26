@@ -16,7 +16,7 @@ def validate_name(name):
 def validate_year(year):
     try:
         year_int = int(year)
-        return 1900 <= year_int <= 2100
+        return 1900 <= year_int <= 2050
     except (ValueError, TypeError):
         return False
 
